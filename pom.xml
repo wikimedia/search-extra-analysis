@@ -10,7 +10,7 @@
 
     <groupId>org.wikimedia.search</groupId>
     <artifactId>extra-analysis</artifactId>
-    <version>5.5.2-SNAPSHOT</version>
+    <version>5.5.2</version>
     <description>Extra (GPL) Analysis Modules for Elasticsearch.</description>
 
     <licenses>
@@ -24,7 +24,7 @@
     <scm>
         <connection>scm:git:https://gerrit.wikimedia.org/r/search/extra-analysis</connection>
         <developerConnection>scm:git:ssh://gerrit.wikimedia.org:29418/search/extra-analysis</developerConnection>
-        <tag>HEAD</tag>
+        <tag>extra-analysis-5.5.2</tag>
         <url>https://gerrit.wikimedia.org/r/#/admin/projects/search/extra-analysis</url>
     </scm>
 
