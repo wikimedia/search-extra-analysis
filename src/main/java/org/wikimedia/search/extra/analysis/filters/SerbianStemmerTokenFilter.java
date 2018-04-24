@@ -18,8 +18,14 @@ public class SerbianStemmerTokenFilter extends TokenFilter {
 		super(in);
 	}
 
+	/* Marked final because "the TokenStream-API in Lucene is based on the
+	 * decorator pattern. Therefore all non-abstract subclasses must be final
+	 * or have at least a final implementation of incrementToken()! This is
+	 * checked when Java assertions are enabled."
+	 * https://lucene.apache.org/core/7_0_0/core/org/apache/lucene/analysis/TokenStream.html
+	 */
 	@Override
-	public boolean incrementToken() throws IOException {
+	public final boolean incrementToken() throws IOException {
 		if (input.incrementToken()) {
 			String converted = STEMMER.stemWord(termAtt.toString());
 			if (converted != null) // if we can't stem it, return unchanged
