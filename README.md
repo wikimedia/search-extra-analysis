@@ -3,7 +3,7 @@ Extra (GPL) Analysis Modules for Elasticsearch
 
 This is a collection of GNU [General Public
 License](https://www.gnu.org/licenses/gpl.html) (GPL) Elasticsearch [analysis
-modules](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)
+plugins](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)
 (currently at *n* = 1) built around other GPL-licensed open-source morphological
 analysis software (e.g., [stemmers](https://en.wikipedia.org/wiki/Stemming) and
 such). The primary goal of this collection is to make these language analysis
@@ -15,10 +15,11 @@ found them useful.
 
 Current contents include:
 
-* [serbian_stemmer](docs/serbian_stemmer.md)—A filter that provides
-Cyrillic-to-Latin transliteration and stemming for the
-[Bosnian-Croatian-Montenegrin-Serbian](https://en.wikipedia.org/wiki/Serbo-Croatian)
-language.
+* [serbian_stemmer](docs/serbian_stemmer.md) in
+`extra-analysis-serbian`—A filter that provides Cyrillic-to-Latin
+transliteration and stemming for the
+[Bosnian-Croatian-Montenegrin-Serbian](https://en.wikipedia.org/wiki/
+Serbo-Croatian) language.
 
 Installation
 ------------
@@ -32,7 +33,7 @@ Install it like so for Elasticsearch x.y.z:
 \>= 5.1.2
 
 ```bash
-./bin/elasticsearch-plugin install org.wikimedia.search:extra-analysis:x.y.z
+./bin/elasticsearch-plugin install org.wikimedia.search:extra-analysis-serbian:x.y.z
 ```
 
 Build

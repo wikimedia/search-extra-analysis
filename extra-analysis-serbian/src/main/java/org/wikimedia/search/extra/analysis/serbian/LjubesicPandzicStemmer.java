@@ -1,4 +1,4 @@
-package org.wikimedia.search.extra.analysis.filters;
+package org.wikimedia.search.extra.analysis.serbian;
 
 import static java.util.Collections.unmodifiableSet;
 import static java.util.Collections.unmodifiableList;
