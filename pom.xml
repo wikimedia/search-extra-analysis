@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.wikimedia.discovery</groupId>
         <artifactId>discovery-parent-pom</artifactId>
-        <version>1.12</version>
+        <version>1.14</version>
     </parent>
 
     <groupId>org.wikimedia.search</groupId>
@@ -126,15 +126,15 @@
                     <configuration>
                         <skipTests>${skip.unit.tests}</skipTests>
                         <listeners>
-                            <report-text showNumFailures="30" showOutput="onerror" showStackTraces="true" showStatusError="true" showStatusFailure="true" showStatusIgnored="true" showStatusOk="false" showSuiteSummary="true" showThrowable="true" timestamps="false" />
-                            <report-ant-xml dir="${project.build.directory}/surefire-reports" mavenExtensions="true" />
+                            <report-text showNumFailures="30" showOutput="onerror" showStackTraces="true" showStatusError="true" showStatusFailure="true" showStatusIgnored="true" showStatusOk="false" showSuiteSummary="true" showThrowable="true" timestamps="false"></report-text>
+                            <report-ant-xml dir="${project.build.directory}/surefire-reports" mavenExtensions="true"></report-ant-xml>
                         </listeners>
                         <heartbeat>20</heartbeat>
                         <jvmOutputAction>warn</jvmOutputAction>
                         <leaveTemporary>true</leaveTemporary>
                         <sysouts>false</sysouts>
                         <assertions>
-                            <enable />
+                            <enable></enable>
                         </assertions>
                         <jvmArgs>
                             <param>-Xmx512m</param>
