@@ -26,6 +26,7 @@ Installation
 
 | Extra Analysis Plugin |  ElasticSearch  |
 |-----------------------|-----------------|
+| 6.3.1.1               | 6.3.1           |
 | 5.5.2                 | 5.5.2           |
 
 Install it like so for Elasticsearch x.y.z:
