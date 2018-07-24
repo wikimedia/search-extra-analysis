@@ -15,6 +15,10 @@ found them useful.
 
 Current contents include:
 
+* [esperanto_stemmer](docs/esperanto_stemmer.md) in
+`extra-analysis-esperanto`—A filter that provides stemming for the
+[Esperanto](https://en.wikipedia.org/wiki/Esperanto) language.
+
 * [serbian_stemmer](docs/serbian_stemmer.md) in
 `extra-analysis-serbian`—A filter that provides Cyrillic-to-Latin
 transliteration and stemming for the

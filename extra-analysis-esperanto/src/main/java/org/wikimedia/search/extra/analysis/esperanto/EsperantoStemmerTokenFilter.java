@@ -1,4 +1,4 @@
-package org.wikimedia.search.extra.analysis.serbian;
+package org.wikimedia.search.extra.analysis.esperanto;
 
 import java.io.IOException;
 
@@ -9,12 +9,12 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 @SuppressFBWarnings(value = "EQ_DOESNT_OVERRIDE_EQUALS", justification = "Standard pattern for token filters.")
-public class SerbianStemmerTokenFilter extends TokenFilter {
+public class EsperantoStemmerTokenFilter extends TokenFilter {
 
     private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
-    private static final LjubesicPandzicStemmer STEMMER = new LjubesicPandzicStemmer();
+    private static final EsperantoStemmer STEMMER = new EsperantoStemmer();
 
-    public SerbianStemmerTokenFilter(TokenStream in) {
+    public EsperantoStemmerTokenFilter(TokenStream in) {
         super(in);
     }
 
@@ -28,9 +28,7 @@ public class SerbianStemmerTokenFilter extends TokenFilter {
     public final boolean incrementToken() throws IOException {
         if (input.incrementToken()) {
             String converted = STEMMER.stemWord(termAtt.toString());
-            if (converted != null) { // if we can't stem it, return unchanged
-                termAtt.setEmpty().append(converted);
-            }
+            termAtt.setEmpty().append(converted);
             return true;
         } else {
             return false;

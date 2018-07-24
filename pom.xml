@@ -23,6 +23,7 @@
     </licenses>
 
     <modules>
+        <module>extra-analysis-esperanto</module>
         <module>extra-analysis-serbian</module>
     </modules>
 
@@ -61,6 +62,11 @@
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wikimedia.search</groupId>
+                <artifactId>extra-analysis-esperanto</artifactId>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wikimedia.search</groupId>
