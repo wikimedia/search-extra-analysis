@@ -2,5 +2,5 @@
 host=gerrit.wikimedia.org
 port=29418
 project=search/extra-analysis.git
-defaultbranch=master
+defaultbranch=5.x
 defaultrebase=0
