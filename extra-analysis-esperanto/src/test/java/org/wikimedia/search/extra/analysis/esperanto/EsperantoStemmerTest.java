@@ -65,7 +65,9 @@ public class EsperantoStemmerTest {
     @Test
     public void testBareSuffixes() {
         // bare suffixes
-        stemUnchangedCheck(new String[]{"-a", "-e", "-j", "-o", "-oj", "-ojn", "-ajn", "-ej", "-o"});
+        stemUnchangedCheck(new String[]{"-a", "-e", "-j", "-o", "-oj", "-ojn", "-ajn", "-ej", "-o", "-jn"});
+        stemUnchangedCheck(new String[]{"j", "jn", "n"}); // plural & direct object
+        stemUnchangedCheck(new String[]{"a", "e", "o", "i"}); // other simple suffixes
     }
 
     @Test
@@ -88,6 +90,12 @@ public class EsperantoStemmerTest {
 
         stemParadigmCheck("20-mm", new String[]{"20-mm", "20-mm-a", "20-mm-aj", "20-mm-ajn"});
         stemParadigmCheck("svr4", new String[]{"svr4", "svr4-oj", "svr4-on", "svr4-j", "svr4-ojn"});
+
+        stemParadigmCheck("1", new String[]{"1j", "1a", "1an", "1aj", "1ajn", "1oj", "1ojn"});
+        stemParadigmCheck("20", new String[]{"20j", "20a", "20an", "20aj", "20ajn", "20oj", "20ojn"});
+        stemParadigmCheck("303", new String[]{"303j", "303a", "303an", "303aj", "303ajn", "303oj", "303ojn"});
+        stemParadigmCheck("1960", new String[]{"1960j", "1960a", "1960an", "1960aj", "1960ajn",
+            "1960oj", "1960ojn"});
     }
 
     @Test
@@ -145,11 +153,19 @@ public class EsperantoStemmerTest {
     }
 
     @Test
+    public void testNonEsperantoWords() {
+        // words that look like they end in the Esperanto suffixes -j, -n, or -jn,
+        // but don't really, because they are not preceded by a vowel
+        stemUnchangedCheck(new String[]{"barn", "én", "mann", "heyn", "új", "djerdj", "nj",
+            "mexzdunarodnyj", "alisj"});
+    }
+
+    @Test
     public void testNumbers() {
         // spelled out numbers
 
         // inflections of unu, "one"
-        stemParadigmCheck("unu", new String[]{"unu", "unuo", "unue", "unua"});
+        stemParadigmCheck("unu", new String[]{"unu", "unuo", "unue", "unua", "unuj", "unun", "unujn"});
 
         // inflections of tri, "three"
         stemParadigmCheck("tri", new String[]{"tri", "tria", "trie", "trio", "tri", "tria",

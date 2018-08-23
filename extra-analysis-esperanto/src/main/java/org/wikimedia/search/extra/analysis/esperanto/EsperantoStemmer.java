@@ -4,6 +4,8 @@ import static java.util.Collections.unmodifiableSet;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Set;
 
 /*
@@ -47,12 +49,21 @@ public class EsperantoStemmer {
     private static final int MAX_SUFFIX_LENGTH = initMaxSuffixLength();
     private static final int MIN_STEM_LENGTH = 2;
 
+    private static final Pattern INFLECTED_NUMBER_PAT = Pattern.compile("^(.*[0-9])(a|an|aj|ajn|j|oj|ojn)$");
+
     // Given a word, return its stemmed form
     public String stemWord(String word) {
 
         // Check if it is an exception to stemming
         if (isExceptionOrNumber(word)) {
             return word;
+        }
+
+        // match strings ending in numbers that are inflected without a hyphen
+        // they really should use a hyphen, but we know what they meant
+        Matcher inflectedNumberMatcher = INFLECTED_NUMBER_PAT.matcher(word);
+        if (inflectedNumberMatcher.matches()) {
+            return inflectedNumberMatcher.group(1);
         }
 
         int localMinStemLength = Math.max(MIN_STEM_LENGTH, firstVowelPos(word) + 1);
@@ -128,8 +139,16 @@ public class EsperantoStemmer {
     // calculate the offset of plural marker (-j) and direct object marker (-n) from end of string
     private static int calcPluralDirectOffset(String word) {
         for (String suffix : PLURAL_DIR_OBJ_SUFFIXES) {
+            if (word.equals(suffix)) {
+                // don't trim the whole string as a suffix
+                return 0;
+            }
             if (word.endsWith(suffix)) {
-                return suffix.length();
+                int suffixLength = suffix.length();
+                char prevChar = word.charAt(word.length() - suffixLength - 1);
+                if (prevChar == '-' || VOWELS.contains(prevChar)) {
+                    return suffixLength;
+                }
             }
         }
         return 0;
@@ -215,7 +234,9 @@ public class EsperantoStemmer {
             // Dates
             "a", "an",
             // Roman numerals to 20
-            "i", "ii", "iii", "vi", "vii", "viii", "xi", "xii", "xiii", "xvi", "xvii", "xviii"
+            "i", "ii", "iii", "vi", "vii", "viii", "xi", "xii", "xiii", "xvi", "xvii", "xviii",
+            // irregular numeral
+            "unu"
         ));
     }
 
