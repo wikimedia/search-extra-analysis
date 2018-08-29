@@ -261,8 +261,9 @@ public class EsperantoStemmer {
     private static int initMaxSuffixLength() {
         int maxLen = -1;
         for (String suffix : STEMMER_SUFFIXES) {
-            if (suffix.length() > maxLen) {
-                maxLen = suffix.length();
+            int len = suffix.length();
+            if (len > maxLen) {
+                maxLen = len;
             }
         }
         return maxLen;
