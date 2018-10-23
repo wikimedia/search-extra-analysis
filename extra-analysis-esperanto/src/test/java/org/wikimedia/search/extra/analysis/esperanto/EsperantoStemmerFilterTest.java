@@ -1,6 +1,6 @@
 package org.wikimedia.search.extra.analysis.esperanto;
 
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -75,7 +75,7 @@ public class EsperantoStemmerFilterTest extends BaseTokenStreamTestCase {
                 Tokenizer tok = new WhitespaceTokenizer();
                 TokenStream ts = new LowerCaseFilter(tok);
                 ts = new EsperantoStemmerTokenFilter(ts);
-                ts = new StopFilter(ts, new CharArraySet(new HashSet<>(asList("al")), true));
+                ts = new StopFilter(ts, new CharArraySet(new HashSet<>(singletonList("al")), true));
                 return new TokenStreamComponents(tok, ts);
             }
         };

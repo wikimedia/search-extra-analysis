@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class LjubesicPandzicStemmerTest {
 
-	LjubesicPandzicStemmer stemmer = new LjubesicPandzicStemmer();
+	private final LjubesicPandzicStemmer stemmer = new LjubesicPandzicStemmer();
 
 	@Test
 	public void testGeneralStemming() {

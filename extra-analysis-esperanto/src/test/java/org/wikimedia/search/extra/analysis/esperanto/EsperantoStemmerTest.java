@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class EsperantoStemmerTest {
 
-    EsperantoStemmer stemmer = new EsperantoStemmer();
+    private final EsperantoStemmer stemmer = new EsperantoStemmer();
 
     private void stemCheck(String word, String stem) {
         assertThat(stemmer.stemWord(word)).isEqualTo(stem);

@@ -489,13 +489,13 @@ public class LjubesicPandzicStemmer {
          * <p>
          * <i>The list of word beginnings.</i>
          */
-        List<String> wordStart = new ArrayList<String>();
+        List<String> wordStart = new ArrayList<>();
 
         /** Lista završetaka reči.
          * <p>
          * <i>The list of word endings.</i>
          */
-        List<String> wordEnd = new ArrayList<String>();
+        List<String> wordEnd = new ArrayList<>();
 
         wordStart.add(".+(s|š)k"); wordEnd.add("ijima|ijega|ijemu|ijem|ijim|ijih|ijoj|ijeg|iji|ije|ija|oga|ome|omu|ima|og|om|im|ih|oj|i|e|o|a|u");
         wordStart.add(".+(s|š)tv"); wordEnd.add("ima|om|o|a|u");
@@ -577,7 +577,7 @@ public class LjubesicPandzicStemmer {
          * <p>
          * <i>The list of morphological patterns of words.</i>
          */
-        List<Pattern> wordPats = new ArrayList<Pattern>(wordStart.size());
+        List<Pattern> wordPats = new ArrayList<>(wordStart.size());
 
         for (int i = 0; i < wordStart.size(); i++) {
             String pattern = "^(" + wordStart.get(i) + ")(" + wordEnd.get(i) + ")$";

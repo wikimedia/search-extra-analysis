@@ -1,6 +1,6 @@
 package org.wikimedia.search.extra.analysis.serbian;
 
-import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -75,7 +75,7 @@ public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
                 Tokenizer tok = new WhitespaceTokenizer();
                 TokenStream ts = new LowerCaseFilter(tok);
                 ts = new SerbianStemmerTokenFilter(ts);
-                ts = new StopFilter(ts, new CharArraySet(new HashSet<>(asList("na")), true));
+                ts = new StopFilter(ts, new CharArraySet(new HashSet<>(singletonList("na")), true));
                 return new TokenStreamComponents(tok, ts);
             }
         };

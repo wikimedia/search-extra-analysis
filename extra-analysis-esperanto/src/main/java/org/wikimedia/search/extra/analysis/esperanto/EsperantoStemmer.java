@@ -36,10 +36,10 @@ public class EsperantoStemmer {
     private static final Set<String> PLURAL_DIRECT_CHECKS = unmodifiableSet(initPluralDirectChecks());
 
     // bare suffixes: assumes that -j and -n (as in -oj, -on, -ojn) are stripped elsewhere
-    private static final Set<String> BARE_SUFFIXES = unmodifiableSet(new HashSet<String>(
+    private static final Set<String> BARE_SUFFIXES = unmodifiableSet(new HashSet<>(
             Arrays.asList("-o", "-a", "-e", "-")));
 
-    private static final Set<Character> VOWELS = unmodifiableSet(new HashSet<Character>(
+    private static final Set<Character> VOWELS = unmodifiableSet(new HashSet<>(
             Arrays.asList('a', 'e', 'i', 'o', 'u')));
 
     private static final String[] BIG_NUMBER_WORDS = {"mil", "cent", "dek"}; // 1000, 100, 10
@@ -190,7 +190,7 @@ public class EsperantoStemmer {
 
     // Suffixes are sourced from https://en.wikipedia.org/wiki/Esperanto_grammar
     private static Set<String> initStemmerSuffixes() {
-        return new HashSet<String>(Arrays.asList(
+        return new HashSet<>(Arrays.asList(
             // Part of speech suffixes
             "o", "a", "e", "i",
             // Verb conjugations
@@ -211,7 +211,7 @@ public class EsperantoStemmer {
 
     // words that look like they get stemmed, but don't
     private static Set<String> initStemmerExceptions() {
-        return new HashSet<String>(Arrays.asList(
+        return new HashSet<>(Arrays.asList(
             // The article
             "la",
             // Conjunctions
@@ -242,7 +242,7 @@ public class EsperantoStemmer {
 
     // list of words with limited inflections
     private static Set<String> initPluralDirectChecks() {
-        return new HashSet<String>(Arrays.asList(
+        return new HashSet<>(Arrays.asList(
             // pronouns
             "ci", "ĝi", "gi", "iŝi", "li", "mi", "ni", "ri", "ŝi", "si", "ŝli", "vi",
             // determiners
@@ -252,7 +252,7 @@ public class EsperantoStemmer {
 
     // basic numerals 1-9
     private static Set<String> initNumerals() {
-        return new HashSet<String>(Arrays.asList(
+        return new HashSet<>(Arrays.asList(
             "unu", "du", "tri", "kvar", "kvin", "ses", "sep", "ok", "naŭ"
         ));
     }
