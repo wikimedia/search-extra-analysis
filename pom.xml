@@ -12,6 +12,7 @@
     <artifactId>extra-analysis</artifactId>
     <version>6.4.2-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>Elasticsearch extra plugins (GPL)</name>
     <description>Extra (GPL) Analysis Modules for Elasticsearch.</description>
 
     <licenses>
