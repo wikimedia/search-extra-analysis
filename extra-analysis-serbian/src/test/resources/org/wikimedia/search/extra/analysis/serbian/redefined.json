@@ -1,0 +1,19 @@
+{
+  "index": {
+    "analysis": {
+      "filter": {
+        "scstemmer": {
+          "type": "serbian_stemmer"
+        }
+      },
+      "analyzer": {
+        "serbian_redefined": {
+          "tokenizer": "standard",
+          "filter": [
+            "scstemmer"
+          ]
+        }
+      }
+    }
+  }
+}
