@@ -1,0 +1,14 @@
+{
+  "index": {
+    "analysis": {
+      "analyzer": {
+        "serbian_prebuilt": {
+          "tokenizer": "standard",
+          "filter": [
+            "serbian_stemmer"
+          ]
+        }
+      }
+    }
+  }
+}
