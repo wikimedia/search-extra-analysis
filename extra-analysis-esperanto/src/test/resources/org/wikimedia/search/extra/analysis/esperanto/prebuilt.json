@@ -1,0 +1,14 @@
+{
+  "index": {
+    "analysis": {
+      "analyzer": {
+        "esperanto_prebuilt": {
+          "tokenizer": "standard",
+          "filter": [
+            "esperanto_stemmer"
+          ]
+        }
+      }
+    }
+  }
+}
