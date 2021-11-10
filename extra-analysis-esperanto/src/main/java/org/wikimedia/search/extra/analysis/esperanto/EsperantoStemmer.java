@@ -129,9 +129,7 @@ public class EsperantoStemmer {
             }
         }
         if (numeralIndex != -1) {
-            if (BASIC_NUMERALS.contains(word.substring(numeralIndex))) {
-                return true;
-            }
+            return BASIC_NUMERALS.contains(word.substring(numeralIndex));
         }
         return false;
     }

@@ -485,15 +485,13 @@ public class LjubesicPandzicStemmer {
     private static List<Pattern> initWordPatterns() {
         // RULES
 
-        /** Lista početnih delova reči.
-         * <p>
-         * <i>The list of word beginnings.</i>
+        /* Lista početnih delova reči.
+         * The list of word beginnings.
          */
         List<String> wordStart = new ArrayList<>();
 
-        /** Lista završetaka reči.
-         * <p>
-         * <i>The list of word endings.</i>
+        /* Lista završetaka reči.
+         * The list of word endings.
          */
         List<String> wordEnd = new ArrayList<>();
 
@@ -573,9 +571,8 @@ public class LjubesicPandzicStemmer {
 
         assert wordStart.size() == wordEnd.size();
 
-        /** Lista morfoloških obrazaca reči.
-         * <p>
-         * <i>The list of morphological patterns of words.</i>
+        /* Lista morfoloških obrazaca reči.
+         * The list of morphological patterns of words.
          */
         List<Pattern> wordPats = new ArrayList<>(wordStart.size());
 
