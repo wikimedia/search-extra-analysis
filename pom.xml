@@ -10,7 +10,7 @@
 
     <groupId>org.wikimedia.search</groupId>
     <artifactId>extra-analysis</artifactId>
-    <version>6.8.21</version>
+    <version>6.8.22-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Elasticsearch extra plugins (GPL)</name>
     <description>Extra (GPL) Analysis Modules for Elasticsearch.</description>
@@ -31,7 +31,7 @@
     <scm>
         <connection>scm:git:https://gerrit.wikimedia.org/r/search/extra-analysis</connection>
         <developerConnection>scm:git:ssh://gerrit.wikimedia.org:29418/search/extra-analysis</developerConnection>
-        <tag>extra-analysis-6.8.21</tag>
+        <tag>HEAD</tag>
         <url>https://gerrit.wikimedia.org/r/#/admin/projects/search/extra-analysis</url>
     </scm>
 
