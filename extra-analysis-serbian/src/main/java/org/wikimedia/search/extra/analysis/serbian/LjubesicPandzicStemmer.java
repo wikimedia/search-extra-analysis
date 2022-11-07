@@ -91,37 +91,37 @@ public class LjubesicPandzicStemmer {
      *
      * <i>The map of suffix transformations.</i>
      */
-    private static final Transformations transformations = new Transformations(unmodifiableMap(initTransformations()));
+    private static final Transformations TRANSFORMATIONS = new Transformations(unmodifiableMap(initTransformations()));
 
     /** Lista stop-reči. Korišćena je implementacija u vidu hashseta radi brzine.
      * <p>
      * <i>The list of stop-words. A hashset implementation was used for the sake of efficiency.</i>
      */
-    private static final Set<String> stopset = unmodifiableSet(initStopSet());
+    private static final Set<String> STOPSET = unmodifiableSet(initStopSet());
 
     /** Lista morfoloških obrazaca reči.
      * <p>
      * <i>The list of morphological patterns of words.</i>
      */
-    private static final List<Pattern> wordPatterns = unmodifiableList(initWordPatterns());
+    private static final List<Pattern> WORD_PATTERNS = unmodifiableList(initWordPatterns());
 
     /** Skup samoglasnika.
      * <p>
      * <i>The set of vowels.</i>
      */
-    private static final Pattern vowelPattern = Pattern.compile("[aeiouR]");
+    private static final Pattern VOWEL_PATTERN = Pattern.compile("[aeiouR]");
 
     /** Pattern for matching Syllabic R.
      */
-    private static final Pattern syllabicRPattern = Pattern.compile("(^|[^aeiou])r($|[^aeiou])");
+    private static final Pattern SYLLABIC_R_PATTERN = Pattern.compile("(^|[^aeiou])r($|[^aeiou])");
 
     /** String transformations should be localized to Serbian.
      */
-    private static final Locale srLocale = new Locale("sr");
+    private static final Locale SR_LOCALE = new Locale("sr");
 
     /** Mapping from Latin to Cyrillic characters.
      */
-    private static final Map<Character, String> cyr2LatMap = unmodifiableMap(initCyr2LatMap());
+    private static final Map<Character, String> CYR_2_LAT_MAP = unmodifiableMap(initCyr2LatMap());
 
     /**
      * Ako se naiđe na neku od stop-reči, ona se preskače. U suprotnom, sufiks reči se najpre transformiše a zatim i uklanja.
@@ -134,10 +134,10 @@ public class LjubesicPandzicStemmer {
      */
     public String stemWord(String word) {
         word = convertCyrrilicToLatinString(word);
-        if (stopset.contains(word.toLowerCase(srLocale)))
+        if (STOPSET.contains(word.toLowerCase(SR_LOCALE)))
             return word;
         String stemmed = transform(word);
-        for (Pattern pattern : wordPatterns) {
+        for (Pattern pattern : WORD_PATTERNS) {
             Matcher matcher = pattern.matcher(stemmed);
             if (matcher.matches()) {
                 String wordStem = matcher.group(1);
@@ -159,14 +159,14 @@ public class LjubesicPandzicStemmer {
      */
     private String transform(String word) {
         int wordLength = word.length();
-        if (wordLength < transformations.minLen) {
+        if (wordLength < TRANSFORMATIONS.minLen) {
             // word is too short to have a suffix to transform
             return word;
         }
         // process suffixes longest to shortest to get most relevant match
-        for (int i = Math.min(wordLength, transformations.maxLen); i >= transformations.minLen; i--) {
+        for (int i = Math.min(wordLength, TRANSFORMATIONS.maxLen); i >= TRANSFORMATIONS.minLen; i--) {
             String wordEnding = word.substring(wordLength - i);
-            String replacement = transformations.map.get(wordEnding);
+            String replacement = TRANSFORMATIONS.map.get(wordEnding);
             if (replacement != null) {
                 return word.substring(0, wordLength - i) + replacement;
             }
@@ -185,7 +185,7 @@ public class LjubesicPandzicStemmer {
      * <br><i>The word with the syllabic R capitalized</i>
      */
     private String capitalizeSyllabicR(String word) {
-        return syllabicRPattern.matcher(word).replaceAll("$1R$2");
+        return SYLLABIC_R_PATTERN.matcher(word).replaceAll("$1R$2");
     }
 
     /**
@@ -198,7 +198,7 @@ public class LjubesicPandzicStemmer {
      * <br><i>True if the word contains a vowel/syllabic R, false otherwise</i>
      */
     private boolean hasAVowel(String word) {
-        Matcher matcher = vowelPattern.matcher(capitalizeSyllabicR(word));
+        Matcher matcher = VOWEL_PATTERN.matcher(capitalizeSyllabicR(word));
         return matcher.find();
     }
 
@@ -216,7 +216,7 @@ public class LjubesicPandzicStemmer {
     /* Convert a single Cyrillic character to Latin character or digraph.
      */
     private String convertCyrillicToLatinCharacter(char character) {
-        String latinChar = cyr2LatMap.get(character);
+        String latinChar = CYR_2_LAT_MAP.get(character);
         if (latinChar != null) return latinChar;
 
         return Character.toString(character);
