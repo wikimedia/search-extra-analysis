@@ -1,10 +1,10 @@
-Extra (GPL) Analysis Modules for Elasticsearch
+Extra (GPL) Analysis Modules for OpenSearch
 =========================
 
 This is a collection of GNU [General Public
-License](https://www.gnu.org/licenses/gpl.html) (GPL) Elasticsearch [analysis
-plugins](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)
-(currently at *n* = 1) built around other GPL-licensed open-source morphological
+License](https://www.gnu.org/licenses/gpl.html) (GPL) OpenSearch [analysis
+plugins](https://opensearch.org/docs/latest/analyzers/language-analyzers/)
+(currently at *n* = 2) built around other GPL-licensed open-source morphological
 analysis software (e.g., [stemmers](https://en.wikipedia.org/wiki/Stemming) and
 such). The primary goal of this collection is to make these language analysis
 modules available for use in
@@ -28,10 +28,11 @@ Serbo-Croatian) language.
 Installation
 ------------
 
-| Extra Analysis Plugin |  ElasticSearch  |
-|-----------------------|-----------------|
-| 6.3.1.1               | 6.3.1           |
-| 5.5.2                 | 5.5.2           |
+| Extra Analysis Plugin |   ElasticSearch   |
+|-----------------------|-------------------|
+| 1.3.19                | OpenSearch 1.3.19 |
+| 6.3.1.1               | Elastic 6.3.1     |
+| 5.5.2                 | Elastic 5.5.2     |
 
 Install it like so for Elasticsearch x.y.z:
 
@@ -39,6 +40,11 @@ Install it like so for Elasticsearch x.y.z:
 
 ```bash
 ./bin/elasticsearch-plugin install org.wikimedia.search:extra-analysis-serbian:x.y.z
+```
+
+Install it like so for OpenSearch x.y.z:
+```bash
+./bin/opensearch-plugin install org.wikimedia.search:opensearch-extra-analysis-serbian:x.y.z
 ```
 
 Build
