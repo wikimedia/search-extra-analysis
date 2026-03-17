@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.HashSet;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.BaseTokenStreamTestCase;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
@@ -14,6 +13,7 @@ import org.apache.lucene.analysis.core.LowerCaseFilter;
 import org.apache.lucene.analysis.core.StopFilter;
 import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 import org.apache.lucene.analysis.miscellaneous.ASCIIFoldingFilter;
+import org.apache.lucene.tests.analysis.BaseTokenStreamTestCase;
 import org.junit.Test;
 
 public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
@@ -23,15 +23,16 @@ public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
         String input = "Добро дошли на Википедију";
         try (Analyzer ws = newSerbianStemmer()) {
             TokenStream ts = ws.tokenStream("", input);
-            assertTokenStreamContents(ts,
-                    new String[]{"dobr", "došl", "na", "vikipedij"},
-                    new int[]{0, 6, 12, 15}, // start offsets
-                    new int[]{5, 11, 14, 25}, // end offsets
+            assertTokenStreamContents(
+                    ts,
+                    new String[] {"dobr", "došl", "na", "vikipedij"},
+                    new int[] {0, 6, 12, 15}, // start offsets
+                    new int[] {5, 11, 14, 25}, // end offsets
                     null, // types, not supported
-                    new int[]{1, 1, 1, 1}, // pos increments
+                    new int[] {1, 1, 1, 1}, // pos increments
                     null, // pos size (unsupported)
                     25, // last offset
-                    null, //keywordAtts, (unsupported)
+                    null, // keywordAtts, (unsupported)
                     true);
         }
     }
@@ -55,15 +56,16 @@ public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
         String input = "Добро дошли на Википедију";
         try (Analyzer ws = newSerbianStemmerWithStop()) {
             TokenStream ts = ws.tokenStream("", input);
-            assertTokenStreamContents(ts,
-                    new String[]{"dobr", "došl", "vikipedij"},
-                    new int[]{0, 6, 15}, // start offsets
-                    new int[]{5, 11, 25}, // end offsets
+            assertTokenStreamContents(
+                    ts,
+                    new String[] {"dobr", "došl", "vikipedij"},
+                    new int[] {0, 6, 15}, // start offsets
+                    new int[] {5, 11, 25}, // end offsets
                     null, // types, not supported
-                    new int[]{1, 1, 2}, // pos increments
+                    new int[] {1, 1, 2}, // pos increments
                     null, // pos size (unsupported)
                     25, // last offset
-                    null, //keywordAtts, (unsupported)
+                    null, // keywordAtts, (unsupported)
                     true);
         }
     }
@@ -87,15 +89,16 @@ public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
         String input = "Dobro došli na Vikipediju";
         try (Analyzer ws = newSerbianStemmerWithFolding()) {
             TokenStream ts = ws.tokenStream("", input);
-            assertTokenStreamContents(ts,
-                    new String[]{"dobr", "dosl", "na", "vikipedij"},
-                    new int[]{0, 6, 12, 15}, // start offsets
-                    new int[]{5, 11, 14, 25}, // end offsets
+            assertTokenStreamContents(
+                    ts,
+                    new String[] {"dobr", "dosl", "na", "vikipedij"},
+                    new int[] {0, 6, 12, 15}, // start offsets
+                    new int[] {5, 11, 14, 25}, // end offsets
                     null, // types, not supported
-                    new int[]{1, 1, 1, 1}, // pos increments
+                    new int[] {1, 1, 1, 1}, // pos increments
                     null, // pos size (unsupported)
                     25, // last offset
-                    null, //keywordAtts, (unsupported)
+                    null, // keywordAtts, (unsupported)
                     true);
         }
     }
@@ -112,5 +115,4 @@ public class SerbianStemmerFilterTest extends BaseTokenStreamTestCase {
             }
         };
     }
-
 }
