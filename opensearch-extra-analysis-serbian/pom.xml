@@ -9,7 +9,12 @@
     </parent>
 
     <artifactId>opensearch-extra-analysis-serbian</artifactId>
+    <name>OpenSearch Serbian Analyzer Plugin</name>
     <description>Serbian analyzer.</description>
+
+    <properties>
+        <opensearch.plugin.name>opensearch-extra-analysis-serbian</opensearch.plugin.name>
+    <properties>
 
     <dependencies>
         <dependency>

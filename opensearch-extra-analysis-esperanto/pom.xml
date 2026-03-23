@@ -9,7 +9,12 @@
     </parent>
 
     <artifactId>opensearch-extra-analysis-esperanto</artifactId>
+    <name>OpenSearch Esperanto Analyzer Plugin</name>
     <description>Esperanto analyzer.</description>
+
+    <properties>
+        <opensearch.plugin.name>opensearch-extra-analysis-esperanto</opensearch.plugin.name>
+    <properties>
 
     <dependencies>
         <dependency>
