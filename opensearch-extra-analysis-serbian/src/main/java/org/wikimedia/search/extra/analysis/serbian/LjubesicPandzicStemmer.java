@@ -98,7 +98,7 @@ public class LjubesicPandzicStemmer {
     private static final Pattern SYLLABIC_R_PATTERN = Pattern.compile("(^|[^aeiou])r($|[^aeiou])");
 
     /** String transformations should be localized to Serbian. */
-    private static final Locale SR_LOCALE = new Locale("sr");
+    private static final Locale SR_LOCALE = Locale.of("sr");
 
     /** Mapping from Latin to Cyrillic characters. */
     private static final Map<Character, String> CYR_2_LAT_MAP = unmodifiableMap(initCyr2LatMap());

@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.wikimedia</groupId>
         <artifactId>wmf-jvm-parent-pom</artifactId>
-        <version>1.97</version>
+        <version>1.102</version>
     </parent>
 
     <groupId>org.wikimedia.search</groupId>
     <artifactId>opensearch-extra-analysis</artifactId>
-    <version>2.19.5-wmf5-SNAPSHOT</version>
+    <version>3.8.0-wmf1</version>
     <packaging>pom</packaging>
     <name>OpenSearch extra plugins (GPL)</name>
     <description>Extra (GPL) Analysis Modules for Elasticsearch.</description>
@@ -43,11 +43,11 @@
     <properties>
         <hamcrest.version>2.1</hamcrest.version>
         <log4j.version>2.17.1</log4j.version>
-        <lucene.version>9.12.3</lucene.version>
+        <lucene.version>10.5.0</lucene.version>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <opensearch.version>2.19.5</opensearch.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <opensearch.version>3.8.0</opensearch.version>
         <randomizedtesting.version>2.7.1</randomizedtesting.version>
         <spotless.ratchetFrom>origin/master</spotless.ratchetFrom>
     </properties>
