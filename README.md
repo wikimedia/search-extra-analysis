@@ -28,8 +28,10 @@ Serbo-Croatian) language.
 Installation
 ------------
 
-| Extra Analysis Plugin |   ElasticSearch   |
+| Extra Analysis Plugin |   Search Engine   |
 |-----------------------|-------------------|
+| 3.8.0-wmf1            | OpenSearch 3.8.0  |
+| 2.19.5-wmf4           | OpenSearch 2.19.5 |
 | 1.3.19                | OpenSearch 1.3.19 |
 | 6.3.1.1               | Elastic 6.3.1     |
 | 5.5.2                 | Elastic 5.5.2     |

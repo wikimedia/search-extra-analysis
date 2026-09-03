@@ -10,7 +10,7 @@
 
     <groupId>org.wikimedia.search</groupId>
     <artifactId>opensearch-extra-analysis</artifactId>
-    <version>3.8.0-wmf1</version>
+    <version>3.8.0-wmf1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>OpenSearch extra plugins (GPL)</name>
     <description>Extra (GPL) Analysis Modules for Elasticsearch.</description>
@@ -44,11 +44,11 @@
         <hamcrest.version>2.1</hamcrest.version>
         <log4j.version>2.17.1</log4j.version>
         <lucene.version>10.5.0</lucene.version>
+        <maven.compiler.release>21</maven.compiler.release>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <opensearch.version>3.8.0</opensearch.version>
-        <randomizedtesting.version>2.7.1</randomizedtesting.version>
         <spotless.ratchetFrom>origin/master</spotless.ratchetFrom>
     </properties>
 
@@ -82,7 +82,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.12</version>
+                <version>4.13.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -143,11 +143,6 @@
         </resources>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>com.carrotsearch.randomizedtesting</groupId>
-                    <artifactId>junit4-maven-plugin</artifactId>
-                    <version>${randomizedtesting.version}</version>
-                </plugin>
                 <plugin>
                     <groupId>de.is24.mavenplugins</groupId>
                     <artifactId>deadcode4j-maven-plugin</artifactId>
